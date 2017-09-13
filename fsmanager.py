@@ -13,7 +13,7 @@ print 'Company Name: '+ sys.argv[1] + ' IP: ' + sys.argv[2]
 
 try:
 	xml_file = "/usr/src/sample.xml"
-	xml_file_output = '/usr/src/' + sys.argv[1] +'.xml'.format(os.path.splitext(xml_file)[0])
+	xml_file_output = '/etc/freeswitch/sip_profiles/' + sys.argv[1] +'.xml'.format(os.path.splitext(xml_file)[0])
 	print 'Creating XML Profile Completed...'
 
 	parser = etree.XMLParser(remove_comments=False)
@@ -65,7 +65,7 @@ else:
 
 try:
 	command1 = commands.getoutput('ifup eth0:'+str(c))
-	command = commands.getoutput('fs_cli -x "sofia profile ' + sys.argv[1] + ' restart"')
+	command = commands.getoutput('fs_cli -x "sofia profile ' + sys.argv[1] + ' start"')
 	print "Profile " +  sys.argv[1] + " Load Completed in Freeswitch"
 except:
    print "Loading Profile in FS Failed"

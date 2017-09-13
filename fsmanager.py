@@ -31,10 +31,11 @@ try:
 	for param in root.iter("param"):
    		replaced_ip = param.get("value").replace("10.10.10.75", sys.argv[2])
    		param.set("value", replaced_ip)
-   		logging.debug('Assigned IP address' + sys.argv[2] + ' to company name ' + sys.argv[2])
+   		
    	for name in root.iter("profile"):
 		replace_name = name.get("name").replace("duosoftware", sys.argv[1])
 		name.set("name", replace_name)
+		logging.debug('Assigned IP address' + sys.argv[1] + ' to company name ' + sys.argv[2])
 		logging.debug('Assigned company name to profile ' + sys.argv[2])
 	print 'IP Added into Profile Completed...'
 	

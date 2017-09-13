@@ -12,7 +12,7 @@ import commands
 print 'Company Name: '+ sys.argv[1] + ' IP: ' + sys.argv[2]
 
 try:
-	xml_file = "/usr/src/sample.xml"
+	xml_file = "/usr/src/fsmanager/sample.xml"
 	xml_file_output = '/etc/freeswitch/sip_profiles/' + sys.argv[1] +'.xml'.format(os.path.splitext(xml_file)[0])
 	print 'Creating XML Profile Completed...'
 

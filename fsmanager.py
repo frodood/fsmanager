@@ -9,7 +9,7 @@ import os
 import sys
 import commands
 import logging 
-import requests 
+
 import psycopg2
 import sys
 import datetime
@@ -66,16 +66,17 @@ try:
 	logging.debug('Inserting to CSDB_SipNetworkProfiles')
 	sqlinsert = """INSERT INTO "CSDB_SipNetworkProfiles" ("MainIp","ProfileName","InternalIp","InternalRtpIp","ExternalIp","ExternalRtpIp","Port",
 		"ObjClass","ObjType","ObjCategory","CompanyId","TenantId","createdAt","updatedAt","CallServerId") 
-		VALUES('{0}','{1}','{2}','{3}','{4}','{5}',5060,'{6}','INTERNAL','INTERNAL','{7}',1,'{8}','{9}','1')""".format(profileIP,ProfileName,profileIP,profileIP,profileIP,profileIP,profileIP,CompanyId,date,date)
+		VALUES('{0}','{1}','{2}','{3}','{4}','{5}',5060,'DVP','INTERNAL','INTERNAL','{6}',1,'{7}','{8}','1')""".format(profileIP,ProfileName,profileIP,profileIP,profileIP,profileIP,CompanyId,date,date)
 	cur.execute(sqlinsert) 
 	con.commit()
+	print "Insert into CSDB_SipNetworkProfiles done"
 except psycopg2.DatabaseError, e:
     
     if con:
         con.rollback()
     
     print 'Error %s' % e  
-     logging.debug('Inserting to CSDB_SipNetworkProfiles Failed')
+    logging.debug('Inserting to CSDB_SipNetworkProfiles Failed')
     sys.exit(1)
     
     

@@ -1,4 +1,4 @@
-<profile name="duosoftware">
+<profile name="sample">
   <!--
       This is a sofia sip profile/user agent.  This will service exactly one ip and port.
       In FreeSWITCH you can run multiple sip user agents on their own ip and port.
@@ -94,9 +94,9 @@
     <param name="outbound-codec-prefs" value="$${global_codec_prefs}"/>
     <param name="rtp-timer-name" value="soft"/>
     <!-- ip address to use for rtp, DO NOT USE HOSTNAMES ONLY IP ADDRESSES -->
-    <param name="rtp-ip" value="10.10.10.75"/>
+    <param name="rtp-ip" value="0.0.0.0"/>
     <!-- ip address to bind to, DO NOT USE HOSTNAMES ONLY IP ADDRESSES -->
-    <param name="sip-ip" value="10.10.10.75"/>
+    <param name="sip-ip" value="0.0.0.0"/>
     <param name="hold-music" value="$${hold_music}"/>
     <param name="apply-nat-acl" value="nat.auto"/>
     <param name="apply-candidate-acl" value="rfc1918.auto"/>
@@ -165,7 +165,7 @@
     <!-- used to share presence info across sofia profiles -->
     <!-- Name of the db to use for this profile -->
     <!--<param name="dbname" value="share_presence"/>-->
-    <param name="presence-hosts" value="10.10.10.75,10.10.10.75"/>
+    <param name="presence-hosts" value="0.0.0.0,0.0.0.0"/>
     <param name="presence-privacy" value="$${presence_privacy}"/>
     <!-- ************************************************* -->
 
@@ -282,8 +282,8 @@
          auto                  - Use guessed ip.
          auto-nat              - Use ip learned from NAT-PMP or UPNP
     -->
-    <param name="ext-rtp-ip" value="10.10.10.75"/>
-    <param name="ext-sip-ip" value="10.10.10.75"/>
+    <param name="ext-rtp-ip" value="0.0.0.0"/>
+    <param name="ext-sip-ip" value="0.0.0.0"/>
 
     <!-- rtp inactivity timeout -->
     <param name="rtp-timeout-sec" value="300"/>
@@ -299,11 +299,11 @@
 
     -->
     <!--all inbound reg will look in this domain for the users -->
-    <param name="force-register-domain" value="10.10.10.75"/>
+    <param name="force-register-domain" value="0.0.0.0"/>
     <!--force the domain in subscriptions to this value -->
-    <param name="force-subscription-domain" value="10.10.10.75"/>
+    <param name="force-subscription-domain" value="0.0.0.0"/>
     <!--all inbound reg will stored in the db using this domain -->
-    <param name="force-register-db-domain" value="10.10.10.75"/>
+    <param name="force-register-db-domain" value="0.0.0.0"/>
 
 
     <!-- for sip over websocket support -->

@@ -13,7 +13,7 @@ import requests
 import psycopg2
 import sys
 import datetime
-
+import config as cfg
 
 LOG_FILENAME = 'fsmanager.log'
 logging.basicConfig(filename=LOG_FILENAME,
@@ -58,7 +58,7 @@ else:
 
 try:
 	con = None
-	con = psycopg2.connect(database="pocDB", user = "duo", password = "DuoS123", host = "192.168.4.3", port = "5432")
+	con = psycopg2.connect(database=cfg.postgres['db'], user = cfg.postgres['user'], password = cfg.postgres['passwd'], host = cfg.postgres['host'], port = cfg.postgres['port'])
 	logging.debug('Postgres connection established..')
 	cur = con.cursor()
 
